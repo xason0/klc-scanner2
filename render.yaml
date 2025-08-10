@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: klc-attendance
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python klc_attendance.py
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        value: your-secure-admin-password-here
+      - key: USE_HTTPS_ADMIN
+        value: "true"
