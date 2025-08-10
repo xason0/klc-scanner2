@@ -1,1 +1,3 @@
 libzbar0
+libzbar-dev
+pkg-config

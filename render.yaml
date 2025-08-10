@@ -2,8 +2,10 @@ services:
   - type: web
     name: klc-attendance
     env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: python klc_attendance.py
+    buildCommand: |
+      chmod +x build.sh
+      ./build.sh
+    startCommand: gunicorn --bind 0.0.0.0:$PORT klc_attendance:app
     envVars:
       - key: SECRET_KEY
         generateValue: true
